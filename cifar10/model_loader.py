@@ -7,11 +7,7 @@ import cifar10.models.vit as vit
 
 # map between model name and function
 models = {
-    'vit'                   : vit.VisionTransformer(n_channels=3,   embed_dim=128, 
-                                        n_layers=6,       n_attention_heads=4, 
-                                        forward_mul=2, image_size=32, 
-                                        patch_size=4,   n_classes=10, 
-                                        dropout=0.1),
+    'vit'                   : vit.vit,
     'vgg9'                  : vgg.VGG9,
     'densenet121'           : densenet.DenseNet121,
     'resnet18'              : resnet.ResNet18,

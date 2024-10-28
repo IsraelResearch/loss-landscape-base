@@ -227,3 +227,10 @@ def vit_init_weights(m):
     elif isinstance(m, EmbedLayer):
         nn.init.trunc_normal_(m.cls_token, mean=0.0, std=0.02)
         nn.init.trunc_normal_(m.pos_embedding, mean=0.0, std=0.02)
+
+    def vit():
+        return VisionTransformer(n_channels=3,   embed_dim=128, 
+                                        n_layers=6,       n_attention_heads=4, 
+                                        forward_mul=2, image_size=32, 
+                                        patch_size=4,   n_classes=10, 
+                                        dropout=0.1)
