@@ -37,8 +37,9 @@ def load_dataset(dataset='cifar10', datapath='cifar10/data', batch_size=128, \
     assert split_idx < data_split, 'the index of data partition should be smaller than the total number of split'
 
     if dataset == 'cifar10':
-        normalize = transforms.Normalize(mean=[x/255.0 for x in [125.3, 123.0, 113.9]],
-                                         std=[x/255.0 for x in [63.0, 62.1, 66.7]])
+        normalize = transforms.Compose([transforms.Resize([32, 32]), 
+                                             transforms.ToTensor(), 
+                                             transforms.Normalize([0.4914, 0.4822, 0.4465], [0.2470, 0.2435, 0.2616])])
 
         data_folder = get_relative_path(datapath)
         if raw_data:
